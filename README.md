@@ -12,7 +12,7 @@ O projeto foi construído sobre a **T3 Stack** (conceitual), priorizando Type Sa
 - **Estilização:** [Tailwind CSS](https://tailwindcss.com/)
 - **Validação de Dados:** [Zod](https://zod.dev/)
 - **Formulários:** [React Hook Form](https://react-hook-form.com/)
-- **Ícones:** Lucide React
+-
 
 ## ✨ Funcionalidades
 
