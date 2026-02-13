@@ -1,36 +1,87 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 📋 Task Manager - Desafio Técnico (Software Engineer)
 
-## Getting Started
+Este projeto é uma aplicação de gerenciamento de tarefas desenvolvida como parte do processo seletivo para a vaga de Software Engineer. O objetivo foi criar uma solução simples, porém funcional e performática, utilizando a stack moderna do React.
 
-First, run the development server:
+## 🚀 Tecnologias Utilizadas
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+O projeto foi construído sobre a **T3 Stack** (conceitual), priorizando Type Safety e performance:
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- **Framework:** [Next.js 15](https://nextjs.org/) (App Router & Server Components)
+- **Comunicação Client-Server:** [tRPC](https://trpc.io/) (End-to-end type safety sem necessidade de gerar esquemas API manualmente)
+- **Gerenciamento de Estado/Cache:** [TanStack Query](https://tanstack.com/query/latest)
+- **Estilização:** [Tailwind CSS](https://tailwindcss.com/)
+- **Validação de Dados:** [Zod](https://zod.dev/)
+- **Formulários:** [React Hook Form](https://react-hook-form.com/)
+- **Ícones:** Lucide React
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## ✨ Funcionalidades
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- **CRUD Completo:** Criação, Listagem e Exclusão de tarefas.
+- **Infinite Scroll:** Carregamento incremental de tarefas à medida que o usuário rola a página (Paginação via cursor).
+- **Validação Robusta:** Feedback visual imediato para campos obrigatórios e erros de validação.
+- **Server-Side Rendering (SSR):** A estrutura do Next.js App Router garante que o conteúdo inicial seja renderizado no servidor.
+- **Banco de Dados em Memória:** Simulação de persistência assíncrona com delay artificial para demonstrar estados de "loading" (Skeleton/Spinners).
 
-## Learn More
+## 🛠️ Instalação e Execução
 
-To learn more about Next.js, take a look at the following resources:
+Pré-requisitos: Node.js (v18 ou superior).
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. **Clone o repositório:**
+   ```bash
+   git clone https://github.com/wedgomes/task-manager
+   cd task-manager
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+2. **Instale as dependências:**
+    ```bash
+    npm install
+    # ou
+    yarn install
 
-## Deploy on Vercel
+3. **Execute o servidor de desenvolvimento:**
+    ```bash
+    npm run dev
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+4. **Acesse a aplicação:**s
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+    Abra http://localhost:3000 no seu navegador.
+
+
+
+🏗️ Decisões de Arquitetura
+1. Por que tRPC?
+A escolha do tRPC elimina a necessidade de uma API REST tradicional ou GraphQL para este escopo. Ele permite chamar funções do backend diretamente no frontend com autocompletar e tipagem garantida, acelerando o desenvolvimento e reduzindo bugs de contrato de API.
+
+2. Persistência de Dados (In-Memory)
+Conforme solicitado no desafio, não há banco de dados real.
+
+    Nota: Os dados são armazenados em uma variável global no servidor. Ao reiniciar o projeto (npm run dev), as tarefas voltarão ao estado inicial.
+
+    Foi implementado um delay artificial (setTimeout) nas operações do "banco" para simular latência de rede e permitir a visualização dos estados de carregamento (loading states) e feedback ao usuário.
+
+3. Infinite Scroll vs Paginação
+Optei por Infinite Scroll em vez de paginação tradicional para oferecer uma experiência mais fluida (UX), típica de feeds modernos e listas de tarefas.
+
+    ```bash
+        📂 Estrutura do Projeto
+        src/
+        ├── app/                  # Rotas do Next.js (App Router)
+        │   ├── api/trpc/         # Endpoint API do tRPC
+        │   └── page.tsx          # Página principal
+        ├── components/           # Componentes React isolados
+        │   ├── TaskForm.tsx      # Formulário com validação Zod
+        │   ├── TaskList.tsx      # Lista com Observer para Infinite Scroll
+        │   └── Providers.tsx     # Wrapper do React Query e tRPC
+        ├── server/               # Lógica do Backend
+        │   └── routers/          # Definição das rotas e procedimentos tRPC
+        ├── lib/                  # Simulação do Banco de Dados
+        └── utils/                # Utilitários e clientes tRPC
+
+Desenvolvido por Wédson Gomes
+
+
+---
+
+### Print da Tela
+
+![Preview do Projeto](/public/preview.png)
+    
