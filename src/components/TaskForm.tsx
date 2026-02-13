@@ -32,7 +32,6 @@ export default function TaskForm({ onSuccess }: { onSuccess?: () => void }) {
                 <input
                     {...register('titulo')}
                     placeholder="Título da tarefa..."
-                    // ADICIONEI: text-gray-900 e bg-white abaixo 👇
                     className="w-full p-2 border border-gray-300 rounded focus:ring-2 focus:ring-blue-500 text-gray-900 bg-white placeholder:text-gray-400"
                 />
                 {errors.titulo && <p className="text-red-500 text-sm mt-1">{errors.titulo.message}</p>}
@@ -41,7 +40,6 @@ export default function TaskForm({ onSuccess }: { onSuccess?: () => void }) {
                 <textarea
                     {...register('descricao')}
                     placeholder="Descrição (opcional)..."
-                    // ADICIONEI: text-gray-900 e bg-white abaixo 👇
                     className="w-full p-2 border border-gray-300 rounded focus:ring-2 focus:ring-blue-500 text-gray-900 bg-white placeholder:text-gray-400"
                 />
             </div>

@@ -61,20 +61,7 @@ Conforme solicitado no desafio, não há banco de dados real.
 3. Infinite Scroll vs Paginação
 Optei por Infinite Scroll em vez de paginação tradicional para oferecer uma experiência mais fluida (UX), típica de feeds modernos e listas de tarefas.
 
-    ```bash
-        📂 Estrutura do Projeto
-        src/
-        ├── app/                  # Rotas do Next.js (App Router)
-        │   ├── api/trpc/         # Endpoint API do tRPC
-        │   └── page.tsx          # Página principal
-        ├── components/           # Componentes React isolados
-        │   ├── TaskForm.tsx      # Formulário com validação Zod
-        │   ├── TaskList.tsx      # Lista com Observer para Infinite Scroll
-        │   └── Providers.tsx     # Wrapper do React Query e tRPC
-        ├── server/               # Lógica do Backend
-        │   └── routers/          # Definição das rotas e procedimentos tRPC
-        ├── lib/                  # Simulação do Banco de Dados
-        └── utils/                # Utilitários e clientes tRPC
+    
 
 Desenvolvido por Wédson Gomes
 
